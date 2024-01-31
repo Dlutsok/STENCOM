@@ -1,3 +1,4 @@
+<script>
 document.addEventListener("DOMContentLoaded", function() {
     // Задержка в 4 секунды (4000 миллисекунд)
     const intervalId = setInterval(function() {
@@ -30,5 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, 1000); // Проверка каждую секунду
 });
+</script>
 
+<script>
 console.log("Элементы с классом t-store__filter__search-and-sort не найдены. Продолжаем проверку...");
+</script>
