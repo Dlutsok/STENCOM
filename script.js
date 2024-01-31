@@ -31,3 +31,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 1000); // Проверка каждую секунду
 });
 
+console.log("Элементы с классом t-store__filter__search-and-sort не найдены. Продолжаем проверку...");
