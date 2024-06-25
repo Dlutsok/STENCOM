@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+</head>
+<body>
+    <h1>Welcome to My Mini App</h1>
+    <button id="checkSites">Check Sites</button>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        document.getElementById('checkSites').addEventListener('click', () => {
+            // Здесь вы можете добавить логику для проверки сайтов
+            // Например, вы можете использовать fetch для проверки статуса сайтов
+            fetch('/check_sites')
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // Обработка данных
+                });
+        });
+    </script>
+</body>
+</html>
