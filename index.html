@@ -28,7 +28,7 @@
 </head>
 <body>
     <h1>Даня постарался и настроил все за 30 минут</h1>
-    <button id="button1">Send Data to Telegram</button>
+    <button id="button1">Просто кнопка</button>
     <button id="button2">Перекрасить все</button>
     <button id="button3">Закрыть</button>
 
@@ -36,7 +36,15 @@
         const tg = window.Telegram.WebApp;
 
         document.getElementById('button1').addEventListener('click', () => {
-            tg.sendData("Button 1 clicked!");
+            tg.backgroundColor = '#a0d2eb';
+            tg.headerColor = '#84a9ac';
+            tg.themeParams.bg_color = '#a0d2eb';
+            tg.themeParams.text_color = '#333333';
+            tg.themeParams.hint_color = '#666666';
+            tg.themeParams.link_color = '#007bff';
+            tg.themeParams.button_color = '#84a9ac';
+            tg.themeParams.button_text_color = '#ffffff';
+            tg.applyThemeParams();
         });
 
         document.getElementById('button2').addEventListener('click', () => {
