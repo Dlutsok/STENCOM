@@ -13,28 +13,34 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            transition: background-color 0.5s;
         }
         h1 {
             color: white;
             font-size: 20px;
             border: 1px solid white;
             padding: 20px;
+            transition: color 0.5s;
         }
         button {
             margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.5s, color 0.5s;
         }
-
-        button1, button2 {
-            width: 100px;
-            heingh: auto;
+        .button-animation {
+            animation: pulse 0.5s;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
 <body>
-    <h1>Даня постарался и настроил все за 30 минут</h1>
+    <h1 id="title">Даня постарался и настроил все за 30 минут</h1>
     <button id="button1">Просто кнопка</button>
     <button id="button2">Перекрасить все</button>
     <button id="button3">Закрыть</button>
@@ -43,18 +49,18 @@
         const tg = window.Telegram.WebApp;
 
         document.getElementById('button1').addEventListener('click', () => {
-            tg.backgroundColor = '#a0d2eb';
-            tg.headerColor = '#84a9ac';
-            tg.themeParams.bg_color = '#a0d2eb';
-            tg.themeParams.text_color = '#333333';
-            tg.themeParams.hint_color = '#666666';
-            tg.themeParams.link_color = '#007bff';
-            tg.themeParams.button_color = '#84a9ac';
-            tg.themeParams.button_text_color = '#ffffff';
-            tg.applyThemeParams();
+            document.getElementById('button1').classList.add('button-animation');
+            setTimeout(() => {
+                document.getElementById('button1').classList.remove('button-animation');
+            }, 500);
+            document.getElementById('title').innerText = "Просто кнопка была нажата!";
         });
 
         document.getElementById('button2').addEventListener('click', () => {
+            document.getElementById('button2').classList.add('button-animation');
+            setTimeout(() => {
+                document.getElementById('button2').classList.remove('button-animation');
+            }, 500);
             tg.backgroundColor = '#ffcc00';
             tg.headerColor = '#ff9900';
             tg.themeParams.bg_color = '#ffcc00';
@@ -64,9 +70,14 @@
             tg.themeParams.button_color = '#ff9900';
             tg.themeParams.button_text_color = '#ffffff';
             tg.applyThemeParams();
+            document.getElementById('title').innerText = "Цвета изменены!";
         });
 
         document.getElementById('button3').addEventListener('click', () => {
+            document.getElementById('button3').classList.add('button-animation');
+            setTimeout(() => {
+                document.getElementById('button3').classList.remove('button-animation');
+            }, 500);
             tg.close();
         });
     </script>
