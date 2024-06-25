@@ -27,21 +27,31 @@
 </head>
 <body>
     <h1>Welcome to My Mini App</h1>
-    <button id="button1">Button 1</button>
-    <button id="button2">Button 2</button>
-    <button id="button3">Button 3</button>
+    <button id="button1">Send Data to Telegram</button>
+    <button id="button2">Change Theme</button>
+    <button id="button3">Close Mini App</button>
 
     <script>
+        const tg = window.Telegram.WebApp;
+
         document.getElementById('button1').addEventListener('click', () => {
-            alert('Button 1 clicked!');
+            tg.sendData("Button 1 clicked!");
         });
 
         document.getElementById('button2').addEventListener('click', () => {
-            alert('Button 2 clicked!');
+            tg.backgroundColor = '#ffcc00';
+            tg.headerColor = '#ff9900';
+            tg.themeParams.bg_color = '#ffcc00';
+            tg.themeParams.text_color = '#000000';
+            tg.themeParams.hint_color = '#666666';
+            tg.themeParams.link_color = '#0000ff';
+            tg.themeParams.button_color = '#ff9900';
+            tg.themeParams.button_text_color = '#ffffff';
+            tg.applyThemeParams();
         });
 
         document.getElementById('button3').addEventListener('click', () => {
-            alert('Button 3 clicked!');
+            tg.close();
         });
     </script>
 </body>
