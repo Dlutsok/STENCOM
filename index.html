@@ -97,13 +97,20 @@
             document.getElementById('siteInput').placeholder = 'Введите URL сайта для удаления';
         }
 
-        function checkSitesNow() {
+        async function checkSitesNow() {
             let results = [];
-            sites.forEach(site => {
-                fetch(site, { mode: 'no-cors' })
-                    .then(() => results.push(`${site} - доступен`))
-                    .catch(() => results.push(`${site} - недоступен`));
-            });
+            for (let site of sites) {
+                try {
+                    let response = await fetch(site, { mode: 'no-cors' });
+                    if (response.ok || response.type === 'opaque') {
+                        results.push(`${site} - доступен`);
+                    } else {
+                        results.push(`${site} - недоступен`);
+                    }
+                } catch (error) {
+                    results.push(`${site} - недоступен`);
+                }
+            }
             document.getElementById('resultSection').innerHTML = results.join('<br>');
         }
 
