@@ -18,6 +18,9 @@
             color: white;
             border: none;
             cursor: pointer;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 17px;
         }
         .button:hover {
             background-color: #006699;
@@ -30,9 +33,29 @@
         .result {
             margin-top: 20px;
         }
+        .container2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            width: 200px;
+            height: 200px;
+        }
+
+        h1 {
+            font-size: 23px;
+            border: 2px solid;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
+    <div class="container2">
+        <img class="logo" src="/1.png" alt="Logo">
+    </div>
     <div class="container">
         <h1>Проверка доступности сайтов</h1>
         <button class="button" onclick="showSites()">Показать сайты</button>
